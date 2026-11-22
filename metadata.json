@@ -1,0 +1,6 @@
+{
+  "name": "JanSetu AI",
+  "description": "Multilingual Indian policy, welfare scheme, and citizen rights explainer with eligibility check and voice playback.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -12,7 +12,12 @@ st.set_page_config(
 )
 
 # Initialize Gemini Client using Streamlit Secrets or Environment Variable
-api_key = st.secrets.get("GEMINI_API_KEY") or os.environ.get("GEMINI_API_KEY")
+api_key = os.environ.get("GEMINI_API_KEY")
+if not api_key:
+     try:
+       api_key = st.secrets.get("GEMINI_API_KEY")
+     except Exception:
+       api_key = None
 if not api_key:
   st.error("Please add GEMINI_API_KEY to your Streamlit Secrets or environment.")
   st.stop()
@@ -156,7 +161,7 @@ with col2:
 
         try:
           response = client.models.generate_content(
-              model="gemini-2.5-flash",
+              model="gemini-3.8-flash",
               contents=contents,
           )
           result_text = response.text
